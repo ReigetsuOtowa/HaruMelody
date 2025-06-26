@@ -46,12 +46,8 @@
 
 <script setup lang="ts">
 import type { UpdateLogType } from "@/types/main";
-import { getUpdateLog, isElectron, openLink } from "@/utils/helper";
-import { debounce } from "lodash-es";
-import { useStatusStore } from "@/stores";
+import { getUpdateLog, openLink } from "@/utils/helper";
 import packageJson from "@/../package.json";
-
-const statusStore = useStatusStore();
 
 // 社区数据
 const communityData = [
