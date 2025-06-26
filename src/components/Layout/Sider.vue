@@ -25,7 +25,7 @@
           p-id="11553"
         />
       </svg>
-      <n-text>SPlayer</n-text>
+      <n-text>HaruMelody</n-text>
     </div>
     <n-scrollbar
       :style="{
@@ -70,10 +70,9 @@ const statusStore = useStatusStore();
       }
     }
     .n-text {
-      width: 90px;
+      width: 130px;
       font-size: 22px;
-      // font-weight: bold;
-      font-family: "logo";
+      font-weight: bold;
       margin-left: 8px;
       margin-top: 2px;
       line-height: 40px;

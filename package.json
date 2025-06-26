@@ -1,7 +1,7 @@
 {
   "name": "harumelody",
   "productName": "HaruMelody",
-  "version": "2025.6.26-beta.01",
+  "version": "2025.6.26",
   "description": "A minimalist music player",
   "main": "./out/main/index.js",
   "author": "ReigetsuOtowa",

@@ -5,62 +5,29 @@
       <n-card class="set-item">
         <n-flex align="center" class="about">
           <SvgIcon name="SPlayer" size="26" />
-          <n-text class="logo-name">SPlayer</n-text>
+          <n-text class="logo-name">HaruMelody</n-text>
           <n-tag :bordered="false" size="small" type="primary">
             {{ packageJson.version }}
           </n-tag>
         </n-flex>
-        <n-button
-          :loading="statusStore.updateCheck"
-          type="primary"
-          strong
-          secondary
-          @click="checkUpdate"
-        >
-          {{ statusStore.updateCheck ? "检查更新中" : "检查更新" }}
-        </n-button>
       </n-card>
-      <n-collapse-transition :show="!!updateData">
-        <n-card class="set-item update-data">
-          <n-flex class="version">
-            <n-text>最新版本</n-text>
-            <n-tag :bordered="false" size="small" type="primary">
-              {{ newVersion?.version || "v0.0.0" }}
-            </n-tag>
-            <n-tag v-if="newVersion?.prerelease" class="test" size="small" type="warning">
-              测试版
-            </n-tag>
-            <n-text :depth="3" class="time">{{ newVersion?.time }}</n-text>
-          </n-flex>
-          <div class="markdown-body" v-html="newVersion?.changelog" @click="jumpLink" />
+    </div>
+    
+    <div class="set-list">
+      <n-h3 prefix="bar"> 小组成员 </n-h3>
+      <n-flex class="link">
+        <n-card
+          v-for="(item, index) in groupMember"
+          :key="index"
+          class="link-item"
+          hoverable
+        >
+          <n-text class="name"> {{ item.name }} </n-text>
         </n-card>
-      </n-collapse-transition>
+      </n-flex>
     </div>
     <div class="set-list">
-      <n-h3 prefix="bar"> 历史版本 </n-h3>
-      <n-collapse-transition :show="oldVersion?.length > 0">
-        <n-collapse accordion>
-          <n-collapse-item
-            v-for="(item, index) in oldVersion"
-            :key="index"
-            :title="item.version"
-            :name="item.version"
-          >
-            <n-card class="set-item update-data">
-              <n-flex class="version" justify="space-between">
-                <n-tag :bordered="false" size="small" type="primary">
-                  {{ item?.version || "v0.0.0" }}
-                </n-tag>
-                <n-text :depth="3" class="time">{{ item?.time }}</n-text>
-              </n-flex>
-              <div class="markdown-body" v-html="item?.changelog" @click="jumpLink" />
-            </n-card>
-          </n-collapse-item>
-        </n-collapse>
-      </n-collapse-transition>
-    </div>
-    <div class="set-list">
-      <n-h3 prefix="bar"> 社区与资讯 </n-h3>
+      <n-h3 prefix="bar"> 原开源仓库 </n-h3>
       <n-flex class="link">
         <n-card
           v-for="(item, index) in communityData"
@@ -93,48 +60,29 @@ const communityData = [
     url: packageJson.github,
     icon: "Github",
   },
+];
+
+// 小组成员数据
+const groupMember = [
   {
-    name: "官方博客",
-    url: packageJson.blog,
-    icon: "RssFeed",
+    name: "Member1",
+  },
+  {
+    name: "Member2",
+  },
+  {
+    name: "Member3",
+  },
+  {
+    name: "Member4",
+  },
+  {
+    name: "Member5",
   },
 ];
 
 // 更新日志数据
 const updateData = ref<UpdateLogType[] | null>(null);
-
-// 最新版本
-const newVersion = computed<UpdateLogType | undefined>(() => updateData.value?.[0]);
-
-// 历史版本
-const oldVersion = computed<UpdateLogType[]>(() => {
-  const oldData = updateData.value?.slice(1);
-  return oldData ? oldData : [];
-});
-
-// 检查更新
-const checkUpdate = debounce(
-  () => {
-    if (!isElectron) {
-      window.open(packageJson.github + "/releases", "_blank");
-      return;
-    }
-    statusStore.updateCheck = true;
-    window.electron.ipcRenderer.send("check-update", true);
-  },
-  300,
-  { leading: true, trailing: false },
-);
-
-// 链接跳转
-const jumpLink = (e: MouseEvent) => {
-  const target = e.target as HTMLElement;
-  if (target.tagName !== "A") {
-    return;
-  }
-  e.preventDefault();
-  openLink((target as HTMLAnchorElement).href);
-};
 
 // 获取更新日志
 const getUpdateData = async () => (updateData.value = await getUpdateLog());
