@@ -4,12 +4,12 @@
     <n-h1 class="title">用户协议</n-h1>
     <n-scrollbar class="scrollbar">
       <n-flex class="date" justify="center">
-        <n-tag round>生效日期：2024 年 7 月 16 日</n-tag>
-        <n-tag type="warning" round>更新日期：2024 年 9 月 28 日</n-tag>
+        <n-tag round>生效日期：令和 7 年 6 月 26 日</n-tag>
+        <n-tag type="warning" round>更新日期：令和 7 年 6 月 26 日</n-tag>
       </n-flex>
       <n-p>
-        欢迎使用 SPlayer（以下简称“本软件”）。本软件是一个本地音乐播放软件，可能会调用第三方 API
-        来增强其功能。请在使用本软件前仔细阅读本用户协议。本协议是您（以下简称“用户”）与 SPlayer
+        欢迎使用 HaruMelody（以下简称“本软件”）。本软件是一个本地音乐播放软件，可能会调用第三方 API
+        来增强其功能。请在使用本软件前仔细阅读本用户协议。本协议是您（以下简称“用户”）与 HaruMelody
         开发团队（以下简称“开发者”）之间的法律协议。一旦您下载、安装或使用本软件，即表示您同意接受本协议的所有条款和条件。
       </n-p>
       <n-h3 prefix="bar"> 软件使用 </n-h3>
@@ -21,7 +21,7 @@
       <n-h3 prefix="bar"> 开源许可 </n-h3>
       <n-ol>
         <n-li>本软件是基于 AGPL-3.0 许可发布的开源软件。</n-li>
-        <n-li>用户在使用、修改和分发 SPlayer 时，必须遵守 AGPL-3.0 许可的条款和条件。</n-li>
+        <n-li>用户在使用、修改和分发 HaruMelody 时，必须遵守 AGPL-3.0 许可的条款和条件。</n-li>
         <n-li>
           AGPL-3.0 许可的详细信息可以在以下链接找到：
           <n-a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">
