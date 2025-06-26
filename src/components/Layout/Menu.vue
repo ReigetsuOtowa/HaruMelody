@@ -70,26 +70,6 @@ const menuOptions = computed<MenuOption[] | MenuGroupOption[]>(() => {
           }),
         },
         {
-          key: "personal-fm",
-          label: "私人漫游",
-          show: isLogin() !== 0,
-          icon: renderIcon("Radio", {
-            style: {
-              transform: "translateY(-1px)",
-            },
-          }),
-        },
-        {
-          key: "radio-hot",
-          link: "radio-hot",
-          label: "播客电台",
-          icon: renderIcon("Record", {
-            style: {
-              transform: "translateY(-1px)",
-            },
-          }),
-        },
-        {
           key: "divider",
           type: "divider",
         },
