@@ -18,7 +18,7 @@
           <SvgIcon name="Github" :size="20" />
           {{ packageJson.author }}
         </n-text>
-        <n-text class="name">SPlayer</n-text>
+        <n-text class="name">HaruMelody</n-text>
         <n-text class="version" depth="3">{{ packageJson.version }}</n-text>
       </div>
     </div>
